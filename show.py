@@ -10,17 +10,32 @@ import tkinter as tk
 import logging
 import tkinter.ttk as ttk
 from guizero import *
-
+import pygetwindow as gw
+from pynput.keyboard import Key, Controller
 
 def quita():    
     sys.exit()
 
 def copy1(beep):
     pyperclip.copy("https://raw.githubusercontent.com/James-261/nitrotest/main/soos/" + beep)
+    vent()
     quita()
 
+def vent():
+    discard.activate()
+    keyboard.press(Key.tab)
+    keyboard.release(Key.tab)
+    keyboard.press(Key.ctrl)
+    keyboard.press('v')
+    keyboard.release('v')
+    keyboard.release(Key.ctrl)
+    keyboard.press(Key.enter)
+    keyboard.release(Key.enter)
+
 amogus = []
+keyboard = Controller()
 root = App(title="Nitro", layout="grid", height=520, width=520)
+discard = gw.getWindowsWithTitle('Discord')[0]
 
 folder = os.path.dirname(os.path.abspath(__file__))
 amogus = os.listdir(folder + "\\pack1\\soos")

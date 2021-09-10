@@ -1,0 +1,4 @@
+psutil==5.8.0
+pyperclip==1.8.2
+pynput==1.6.8
+guizero==1.1.1
